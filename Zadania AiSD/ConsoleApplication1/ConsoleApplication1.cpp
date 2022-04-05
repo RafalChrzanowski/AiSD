@@ -18,7 +18,7 @@ void SHOW(node* H) {
     cout << "H->";
     node* p = H;
     while (p != NULL) {
-        ;
+        
         cout << p->val << "->";
         p = p->next;
        
@@ -71,30 +71,55 @@ void zad1(node* H) {
     }
     cout << "END";
 }
-void zad2(node*& H,int x) {
-    node* p = H;
-    while (p != NULL  && p->next!= NULL) {
-        int y = p->next->val;
-        if (y == x) {
-            // cout << endl << "kurwaaa " << x << endl;
-            DEL(p);
-        }
-        else
-            p = p->next;
-       SHOW(H);
 
+void zad2(node*& H, int x) {
+    if (H == NULL || H->next == NULL)
+        return;
+
+    int y = H->next->val;
+    if (x == y)
+    {
+        DEL(H);
+        zad2(H, x);
+    }
+    else
+    {
+        zad2(H->next, x);
     }
 }
+
+void zad3(node*& H) {
+    node* p = H;
+    node* q = NULL;
+    while (p != NULL) {
+        ADD(q, p->val);
+        p = p->next;
+        
+    }
+    cout << "Q"; SHOW(q);
+    cout << endl;
+    SHOW(H);
+    cout << endl;
+    p = H;
+    if (p != NULL) {
+        while (p->next != NULL) {
+            p = p->next;
+        }
+        p->next = q;
+    }
+    SHOW(H);
+}
+
 int main()
 {
     node* H = NULL;
     node* p = new node;
-    ADD(H, 1);
-    ADD(H, 5);
+    ADD(H, 3);
     ADD(H, 2);
     ADD(H, 1);
    // SHOW(H);
-    zad2(H, 2);
-    ;
+   //zad2(H, 3);
+   //SHOW(H);
+    zad3(H);
     return 0;
 }
