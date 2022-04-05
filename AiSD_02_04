@@ -1,0 +1,88 @@
+
+Temat	AiSD_02_04
+Od	chrzanowski@student.agh.edu.pl
+Do	chrzanowski@student.agh.edu.pl
+Data	Sb 16:02
+// ConsoleApplication1.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+using namespace std;
+struct node
+{
+    int val;
+    node* next;
+};
+
+void ADD(node*&H, int x) {
+    node* p = new node;
+    p->val = x;
+    p->next = H;
+    H = p;
+}
+
+void SHOW(node* H) {
+    cout << "H->";
+    node* p = H;
+    while (p != NULL) {;
+    cout << p->val << "->";
+    p = p->next;
+    }
+}
+void DEL(node*& H) {
+    if (H != NULL) {
+        node* p = H;
+        H = H->next;
+        delete p;
+    }
+}
+void DEL_X(node*& H, int x) {
+    if (H != NULL) {
+        if (H->val == x) {
+            DEL(H);
+        }
+        else
+        {
+            node* p = H;
+            while (p->next != NULL && p->next->val != x)
+                p = p->next;
+                DEL(p->next);
+        }
+    }
+}
+
+void COPY(node* H) {
+    if(H!=NULL){
+    node* p = H;
+    while (p != NULL) {
+        ADD(p->next, p->val);
+        p = p->next->next;
+    }
+
+}
+}
+
+
+int main()
+{
+    node* H = NULL;
+    node* p = new node;
+    p->val = 10;
+    p->next=NULL;
+    H = p;
+    //cout<< H->val <<endl;
+    ADD(H, 15);
+    //cout << H->val << endl;
+    //cout << H->next->val << endl;
+    ADD(H, 22);
+    //ADD(H->next, 12);
+    SHOW(H);
+    cout <<" "<< endl;
+    //DEL(H);
+    //DEL(H->next);
+    //DEL_X(H, 15);
+    COPY(H);
+    SHOW(H);
+    return 0;
+}
