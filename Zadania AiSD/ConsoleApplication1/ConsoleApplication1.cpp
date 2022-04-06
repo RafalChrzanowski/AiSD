@@ -1,4 +1,4 @@
-﻿//#include "stdafx.h"
+//#include "stdafx.h"
 #include <iostream>
 using namespace std;
 struct node
@@ -18,11 +18,11 @@ void SHOW(node* H) {
     cout << "H->";
     node* p = H;
     while (p != NULL) {
-        
+
         cout << p->val << "->";
         p = p->next;
-       
-    } 
+
+    }
     cout << "END";
 }
 void DEL(node*& H) {
@@ -94,7 +94,7 @@ void zad3(node*& H) {
     while (p != NULL) {
         ADD(q, p->val);
         p = p->next;
-        
+
     }
     cout << "Q"; SHOW(q);
     cout << endl;
@@ -109,6 +109,33 @@ void zad3(node*& H) {
     }
     SHOW(H);
 }
+node* Ostatni(node* H) {
+    if (H == NULL)
+        return NULL;
+    if (H->next == NULL) {
+        return H;
+    };
+        Ostatni(H->next);
+}
+
+void kopia_do_listy(node*& H, node*& H2) {
+    if (H == NULL)
+        return;
+
+    kopia_do_listy(H->next, H2);
+    ADD(H2, H->val);
+}
+
+void zad4(node*& H) {
+    node* p = NULL;
+    kopia_do_listy(H, p);
+    //SHOW(p);
+    node* ostatni = Ostatni(H);
+    if (ostatni != NULL) {
+        ostatni->next = p;
+    }
+    SHOW(H);
+}
 
 int main()
 {
@@ -117,9 +144,10 @@ int main()
     ADD(H, 3);
     ADD(H, 2);
     ADD(H, 1);
-   // SHOW(H);
-   //zad2(H, 3);
-   //SHOW(H);
-    zad3(H);
+    // SHOW(H);
+    //zad2(H, 3);
+    //SHOW(H);
+    //zad3(H);
+    zad4(H);
     return 0;
 }
