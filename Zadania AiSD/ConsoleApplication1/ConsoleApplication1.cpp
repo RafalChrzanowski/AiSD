@@ -1,21 +1,3 @@
-Skip to content
-RafalChrzanowski
-/
-AiSD
-Public
-Code
-Issues
-Pull requests
-Actions
-Projects
-More
-AiSD / Zadania AiSD / ConsoleApplication1 / ConsoleApplication1.cpp
-@RafalChrzanowski
-RafalChrzanowski Update ConsoleApplication1.cpp
-…
-History
-1 contributor
-306 lines(285 sloc)  4.03 KB
 #include "stdafx.h"
 #include <iostream>
 using namespace std;
@@ -322,15 +304,3 @@ int main()
 	SHOW(H2);
 	return 0;
 }
-© 2022 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
