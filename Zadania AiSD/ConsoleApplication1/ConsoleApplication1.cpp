@@ -1,3 +1,21 @@
+Skip to content
+RafalChrzanowski
+/
+AiSD
+Public
+Code
+Issues
+Pull requests
+Actions
+Projects
+More
+AiSD / Zadania AiSD / ConsoleApplication1 / ConsoleApplication1.cpp
+@RafalChrzanowski
+RafalChrzanowski Update ConsoleApplication1.cpp
+…
+History
+1 contributor
+306 lines(285 sloc)  4.03 KB
 #include "stdafx.h"
 #include <iostream>
 using namespace std;
@@ -102,7 +120,7 @@ void zad3(node*& H) {
 	SHOW(H);
 	cout << endl;
 	p = H;
-	if (p != NULL) {
+	if (p != NULL) {//pobietanie ostaniego miejsca w liscie i dodanie tam drugiej listy
 		while (p->next != NULL) {
 			p = p->next;
 		}
@@ -155,7 +173,7 @@ void zad6(node* H) {
 //________________
 //09.09
 
-void insertSortedList(node *& H, int x) {
+void insertSortedList(node*& H, int x) {
 	if (H == NULL)
 		ADD(H, x);
 	else
@@ -164,20 +182,20 @@ void insertSortedList(node *& H, int x) {
 			ADD(H, x);
 		else
 		{
-			node *p = H;
-			while (p->next != NULL && p->next->val < x) 
+			node* p = H;
+			while (p->next != NULL && p->next->val < x)
 				p = p->next;
 			ADD(p->next, x);
 		}
 	}
 }
-void Enqueu(node*& Q, node*& T,int x) {
+void Enqueu(node*& Q, node*& T, int x) {
 	node* p = new node;
 	p->val = x;
 	p->next = NULL;
 	if (Q == NULL) {
-			Q = p;
-			T = p;
+		Q = p;
+		T = p;
 	}
 	else {
 		T->next = p;
@@ -251,16 +269,16 @@ void MERGE(node*& H, node*& H1, node*& H2) {
 					T = p;
 				}
 			}
-			}
+		}
 		if (H1 == NULL) {
 			T->next = H2;
 			H2 = NULL;
-	}
+		}
 		else {
 			T->next = H1;
 			H1 = NULL;
 		}
-	
+
 
 	}
 }
@@ -304,3 +322,15 @@ int main()
 	SHOW(H2);
 	return 0;
 }
+© 2022 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
