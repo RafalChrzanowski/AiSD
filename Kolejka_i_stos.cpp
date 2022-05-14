@@ -63,7 +63,9 @@ public:
 
 	void Dequeue() {
 		if (H != NULL) {
+			node* p = H;
 			H = H->next;
+			delete p;
 		}
 	}
 	int FrontValue() {
