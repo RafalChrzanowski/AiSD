@@ -1,0 +1,63 @@
+#include <iostream>
+using namespace std;
+struct node
+{
+	int val;
+	node* next;
+};
+
+void ADD(node*& H, int x) {
+	node* p = new node;
+	p->val = x;
+	p->next = H;
+	H = p;
+}
+void SHOW(node* H) {
+	cout << "H->";
+	node* p = H;
+	while (p != NULL) {
+
+		cout << p->val << "->";
+		p = p->next;
+
+	}
+	cout << "END";
+	cout << endl;
+}
+void zad1(node*& H) {
+	node* p = H;
+	int sredniaa = 0;
+	int suma=0;
+	int ilosc = 0;
+	while (p != NULL) {
+		suma += p->val;
+		ilosc++;
+		p = p->next;
+	}
+	sredniaa = suma / ilosc;
+	cout << sredniaa;
+}
+void zad2(node*& H, int x) {
+	node* p = H;
+	node* r = NULL;
+	while (p != NULL) {
+		if (p->val > x) {
+			ADD(r, p->val);
+		}
+		p = p->next;
+	}
+	SHOW(r);
+}
+
+int main()
+{
+	node* H = NULL;
+	node* p = new node;
+	ADD(H, 1);
+	ADD(H, 2);
+	ADD(H, 3);
+	SHOW(H);
+	//zad1(H);
+	zad2(H, 1);
+	return 0;
+}
