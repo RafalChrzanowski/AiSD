@@ -27,7 +27,7 @@ void SHOW(node* H) {
 void zad1(node*& H) {
 	node* p = H;
 	int sredniaa = 0;
-	int suma=0;
+	int suma = 0;
 	int ilosc = 0;
 	while (p != NULL) {
 		suma += p->val;
@@ -48,16 +48,77 @@ void zad2(node*& H, int x) {
 	}
 	SHOW(r);
 }
+void zad3(int x) {//niedokonczone
+	node* p = NULL;
+	ADD(p, 0);
+	ADD(p, 1);
+	for (int i = 0; i < x; i++) {
+		p->next->val += p->val;
+		p->val = p->next->val - p->val;
+		p = p->next;
+	}
+	SHOW(p);
+}
+/*
+void zad4(node*& H,int x) {//niedokonczone
+	node* p = H;
+	int ilosc = 0;
+	while (x > 0) {
+		node* x;
+		x--;
+	}
+	while (p != NULL)
+	{
+		ilosc++;
+	}
+	int rozmiar = round(ilosc / x);
 
+	for (int i = 1; i < rozmiar; i++) {
+
+	}
+}*/
+void zad5(node*& H, node*& H2) {
+	node* p = H;
+	node* p2 = H2;
+	while (p != NULL) {
+		while (p2 != NULL) {
+			if (p2->val == p->val) {
+				cout << p2->val << endl;
+			}
+			p2 = p2->next;
+		}
+		p = p->next;
+	}
+}
+void zad6(node*& H,int x,int y) {
+	node* p = H;
+	node* r = NULL;
+	node* q = NULL;
+	while (p != NULL) {
+		if (p->val = x) {
+			if(p->next->val=y)
+
+		}
+		p = p->next;
+	}
+}
 int main()
 {
 	node* H = NULL;
+	node* H2 = NULL;
 	node* p = new node;
-	ADD(H, 1);
-	ADD(H, 2);
 	ADD(H, 3);
-	SHOW(H);
+	ADD(H, 2);
+	ADD(H, 1);
+	ADD(H2, 1);
+	ADD(H2, 2);
+	ADD(H2, 3);
+	ADD(H2, 4);
+	//SHOW(H);
 	//zad1(H);
-	zad2(H, 1);
+	//zad2(H, 1);
+	//zad3(4);
+	//zad4(H,3);
+	zad5(H, H2);
 	return 0;
 }
