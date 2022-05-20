@@ -90,16 +90,39 @@ void zad5(node*& H, node*& H2) {
 		p = p->next;
 	}
 }
-void zad6(node*& H,int x,int y) {
+
+void zad6(node*& H, int x, int y) {//niedkończone
 	node* p = H;
 	node* r = NULL;
 	node* q = NULL;
 	while (p != NULL) {
 		if (p->val = x) {
-			if(p->next->val=y)
-
+			if (p->next->val = y)
+				cout << "cos";
 		}
 		p = p->next;
+	}
+}
+void DEL(node*& H) {
+	if (H != NULL) {
+		node* p = H;
+		H = H->next;
+		delete p;
+	}
+}
+
+void zad7(node*& H, int x) {
+	if (H != NULL) {
+		if (H->val == x) {
+			DEL(H);
+		}
+		else
+		{
+			node* p = H;
+			while (p->next != NULL && p->next->val != x)
+				p = p->next;
+			DEL(p->next);
+		}
 	}
 }
 int main()
@@ -119,6 +142,9 @@ int main()
 	//zad2(H, 1);
 	//zad3(4);
 	//zad4(H,3);
-	zad5(H, H2);
+	//zad5(H, H2);
+	//zad6(H, 1, 2);
+	zad7(H, 1);
+	SHOW(H);
 	return 0;
 }
