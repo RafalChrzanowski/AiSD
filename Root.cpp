@@ -13,6 +13,7 @@ struct node {
 	nastêpnik po³¹czone to z min
 	min
 	max
+	
 	usuñ , usuwasz jesli nie ma l i r to usuwasz, jeœli ma l ub r to ususawsz i dajewsz na to miejsce ten po lewej,a jeœli masz l i r zmieniasz element na nastêpnik
 	*/
 };
