@@ -7,13 +7,13 @@ struct node {
 	node *L;
 	int val;
 	/*
-	//dodaæ wska¿nikj up, przy korzeniu jest null
+	//dodaÃ¦ wskaÂ¿nikj up, przy korzeniu jest null
 	//node* up;
-	poprzednik po³aczone to z max zmiana kierunku
-	nastêpnik po³¹czone to z min
+	poprzednik poÂ³aczone to z max zmiana kierunku
+	nastÃªpnik poÂ³Â¹czone to z min
 	min
 	max
-	usuñ , usuwasz jesli nie ma l i r to usuwasz, jeœli ma l ub r to ususawsz i dajewsz na to miejsce ten po lewej,a jeœli masz l i r zmieniasz element na nastêpnik
+	usuÃ± , usuwasz jesli nie ma l i r to usuwasz, jeÅ“li ma l ub r to ususawsz i dajewsz na to miejsce ten po lewej,a jeÅ“li masz l i r zmieniasz element na nastÃªpnik
 	*/
 };
 void insertBSR(node*& root, int x) {
