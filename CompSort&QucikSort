@@ -1,0 +1,101 @@
+#include "stdafx.h"
+#include <iostream>
+using namespace std;
+
+//algorytm grzebiebniowy na tablicach -niedokończone
+int tab[8] = { 8, 1, 6, -5, 33, -16, 25, 7 };
+int tab2[9] = { 8, -3, 10, 2, 7, 35, 4, 28, 9};
+int Gap(int gap) {
+	int size = 8;
+	gap = size / 1.3;
+	if (gap == 9 || gap == 10)
+		gap = 11;
+	else if (gap < 1)
+		gap = 1;
+	cout << gap;
+	return gap;
+}
+
+void CombSort() {//do dokończenia
+	int size = 8;
+	int gap=Gap(size);
+	for (int i = 0; i < size-gap; i++) {
+		if(tab[i]>tab[i+gap])
+		{
+			int x = 0;
+			x = tab[i];
+			tab[i] = tab[i + gap];
+			tab[i + gap] = x;
+		}
+	}
+	Gap(gap);
+}
+
+void swap(int *xp, int *yp)
+{
+	int temp = *xp;
+	*xp = *yp;
+	*yp = temp;
+}
+
+void bubbleSort(int arr[], int n)
+{
+	int i, j;
+	bool swapped;
+	for (i = 0; i < n - 1; i++)
+	{
+		swapped = false;
+		for (j = 0; j < n - i - 1; j++)
+		{
+			if (arr[j] > arr[j + 1])
+			{
+				swap(&arr[j], &arr[j + 1]);
+				swapped = true;
+			}
+		}
+
+		// IF no two elements were swapped by inner loop, then break
+		if (swapped == false)
+			break;
+	}
+}
+void wyswietlaTab(int tab[]) {
+	for (int i = 0; i < 8; i++) {
+		cout << tab[i] << ",";
+	}
+}
+void wyswietlaTab2(int tab[]) {
+	for (int i = 0; i < 10; i++) {
+		cout << tab[i] << ",";
+	}
+}
+int partiton_Lomuto(int* tab2, int l, int r) {
+	int x = tab2[r]; // podzia ł wzgl ędem prawego elementu
+	int i = l - 1;
+	for (int j = l; j<r; j++)
+		if (tab2[j]<x) {
+			i++;
+			swap(tab2[i], tab2[j]);
+		}
+	swap(tab2[i + 1], tab2[r]);
+	return i + 1;
+}
+void Quick_sort(int* tab2, int l, int r) {
+	if (l >= r) return;
+	int p = partiton_Lomuto(tab2, l, r); //Lomuto
+	Quick_sort(tab2, l, p - 1);
+	Quick_sort(tab2, p + 1, r);
+}
+
+int main()
+{
+	wyswietlaTab2(tab2);
+	//CombSort();
+	//wyswietlaTab(tab);
+	Quick_sort(tab2, 0, 9);
+	cout << endl;
+	wyswietlaTab2(tab2);
+	cout << endl;
+	system("pause");
+	return 0;
+}
