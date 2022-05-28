@@ -80,11 +80,44 @@ int partiton_Lomuto(int* tab2, int l, int r) {
 	swap(tab2[i + 1], tab2[r]);
 	return i + 1;
 }
-void Quick_sort(int* tab2, int l, int r) {
+void Quick_sort(int* tab2, int l, int r) {//przeanializuj to sb
 	if (l >= r) return;
 	int p = partiton_Lomuto(tab2, l, r); //Lomuto
 	Quick_sort(tab2, l, p - 1);
 	Quick_sort(tab2, p + 1, r);
+}
+
+void bubbleSortDlaHybrydy(int arr[], int L, int R)
+{
+	int i, j;
+	bool swapped;
+	for (i = 0; i < n - 1; i++)
+	{
+		swapped = false;
+		for (j = 0; j < n - i - 1; j++)
+		{
+			if (arr[j] > arr[j + 1])
+			{
+				swap(&arr[j], &arr[j + 1]);
+				swapped = true;
+			}
+		}
+
+		// IF no two elements were swapped by inner loop, then break
+		if (swapped == false)
+			break;
+	}
+}
+void Quick_sort_hybrid(int* tab2, int l, int r) {//przeanializuj to sb
+	if (r-l>=10){
+	int p = partiton_Lomuto(tab2, l, r); //Lomuto
+	Quick_sort(tab2, l, p - 1);
+	Quick_sort(tab2, p + 1, r);
+	}
+	else {
+
+	}
+
 }
 
 int main()
